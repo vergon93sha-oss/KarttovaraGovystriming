@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Котлетное мясо 70/30 - RUSSKY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(56, 189, 248, 0.2); }
+        .slider-container { position: relative; overflow: hidden; }
+        .slider-slide { transition: transform 0.5s ease-in-out; }
+    </style>
+</head>
+<body class="bg-[#F0F9FF] text-[#0F172A] font-sans antialiased py-10 px-4">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-5xl font-bold text-[#0284C7] mb-8 text-center">Котлетное мясо 70/30 (RUSSKY)</h1>
+
+        <!-- Галерея фото (слайдер) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4 text-[#0284C7]">Фото продукции</h2>
+            <div class="slider-container rounded-2xl aspect-video bg-gray-200">
+                <div id="photoSlider" class="flex h-full w-full">
+                    <div class="slider-slide min-w-full flex items-center justify-center text-gray-500 text-2xl bg-blue-100">Фото 1</div>
+                    <div class="slider-slide min-w-full flex items-center justify-center text-gray-500 text-2xl bg-blue-200">Фото 2</div>
+                    <div class="slider-slide min-w-full flex items-center justify-center text-gray-500 text-2xl bg-blue-100">Фото 3</div>
+                    <div class="slider-slide min-w-full flex items-center justify-center text-gray-500 text-2xl bg-blue-200">Фото 4</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Таблица характеристик -->
+        <section class="glass-card rounded-3xl p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-[#0284C7]">Технические характеристики (ГОСТ)</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <tr class="bg-[#0284C7] text-white"><th class="p-3">Параметр</th><th class="p-3">Значение</th></tr>
+                    <tr class="border-b"><td class="p-3 font-semibold">Срок годности</td><td class="p-3">365 дней</td></tr>
+                    <tr class="border-b"><td class="p-3 font-semibold">Температурный режим</td><td class="p-3">-18°C</td></tr>
+                    <tr class="border-b"><td class="p-3 font-semibold">Состав</td><td class="p-3">Обрезь говяжья, тримминг 70/30</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Слайдер деклараций -->
+        <section class="glass-card rounded-3xl p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-[#0284C7]">Декларации соответствия</h2>
+            <div id="docSlider" class="slider-container h-80 flex gap-4">
+                <div class="slider-slide min-w-[300px] bg-gray-300 rounded-xl flex items-center justify-center">Декларация 1</div>
+                <div class="slider-slide min-w-[300px] bg-gray-300 rounded-xl flex items-center justify-center">Декларация 2</div>
+            </div>
+        </section>
+
+        <!-- Видео и Контакты -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <section class="glass-card rounded-3xl p-8">
+                <h2 class="text-xl font-bold mb-4">Видеообзоры</h2>
+                <div class="aspect-video bg-black rounded-xl mb-4"></div>
+                <div class="aspect-video bg-black rounded-xl"></div>
+            </section>
+            <section class="glass-card rounded-3xl p-8">
+                <h2 class="text-xl font-bold mb-4">Оформить заявку</h2>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Имя" class="w-full p-3 rounded-lg border">
+                    <input type="tel" placeholder="Телефон" class="w-full p-3 rounded-lg border">
+                    <button class="w-full bg-[#0284C7] text-white p-4 rounded-lg font-bold">Отправить</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function setupSlider(sliderId, interval) {
+            const slider = document.getElementById(sliderId);
+            let index = 0;
+            setInterval(() => {
+                index = (index + 1) % slider.children.length;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+            }, interval);
+        }
+        setupSlider('photoSlider', 3000);
+        setupSlider('docSlider', 4000);
+    </script>
+</body>
+</html>
